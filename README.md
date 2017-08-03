@@ -38,4 +38,3 @@ btn.addEventListener('click', () => {
 });
 
 ```
-# setState

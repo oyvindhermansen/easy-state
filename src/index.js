@@ -19,9 +19,9 @@ const setState = (initialState, nextState, renderUpdatedState) => {
   const reducer = (state = initialState, action) => {
     if (action.type === 'SIMPLUX') {
 
-      // Using a callback unction for setting new state
+      // Using a callback function for setting new state
       if (typeof nextState === 'function') {
-        return Object.assign(state, nextState(state));
+        return Object.assign(state, nextState(state))
       }
 
       // Using a plain object for setting new state

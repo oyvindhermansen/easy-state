@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  height: auto;
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+  display: table;
+  margin-top: 5rem;
+}
+
+.input,
+.add-todo {
+  height: 50px;
+  font-size: 1rem;
+  border: 2px solid salmon;
+}
+
+.input {
+  width: 80%;
+  float: left;
+  padding-left: 10px;
+}
+
+.add-todo {
+  width: 20%;
+  float: right;
+  border: 0;
+  background: salmon;
+  color: black;
+}
+
+.todos {
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.todos li {
+  padding: 1rem 0;
+  border: 1px solid #eee;
+  padding-left: 10px;
+  font-size: 1rem;
+}

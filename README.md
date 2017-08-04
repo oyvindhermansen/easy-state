@@ -8,14 +8,12 @@ This module only provides the function `setState`.
 It takes three parameteres:
 
 1. `initialState`
-2. `nextState`
-3. `callback function for rendering`
+2. `nextState[function(prevState)] || nextState[object]`
+3. `callback[updatedState]`
 
 Example:
 
 ```js
-import setState from 'setState';
-
 // initialize your state tree
 const initialState = {
   counter: 0

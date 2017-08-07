@@ -2,47 +2,38 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 .container {
-  height: auto;
-  max-width: 600px;
-  margin: auto;
   width: 100%;
-  display: table;
+  height: 100vh;
+  display: flex;
   margin-top: 5rem;
+  align-items: center;
+  flex-direction: column;
 }
 
-.input,
-.add-todo {
-  height: 50px;
-  font-size: 1rem;
-  border: 2px solid salmon;
-}
-
-.input {
-  width: 80%;
-  float: left;
-  padding-left: 10px;
-}
-
-.add-todo {
-  width: 20%;
-  float: right;
-  border: 0;
-  background: salmon;
-  color: black;
-}
-
-.todos {
-  display: table;
+.counter {
   margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
+  font-size: 10rem;
 }
 
-.todos li {
-  padding: 1rem 0;
-  border: 1px solid #eee;
-  padding-left: 10px;
-  font-size: 1rem;
+.btn {
+  padding: 1rem 3rem;
+  font-size: 25px;
+  border-radius: 3px;
+  background: salmon;
+  border: 0;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
 }

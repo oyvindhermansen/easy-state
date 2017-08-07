@@ -7,12 +7,10 @@ const store = observableState({
 });
 
 $('.btn').on('click', () => {
-
   store.setState(prevState => ({
     counter: prevState.counter + 1,
     color: prevState.counter % 2 ? 'salmon' : 'black'
   }));
-
 });
 
 store.render(() => {

@@ -1,19 +1,19 @@
 import { isPlainObject, isFunction, checkForUndefinedKeys } from './utils';
 
-const observableState = (initialState) => {
+const observableState = initialState => {
   let currentState = initialState;
   const listeners = [];
 
   if (!isPlainObject(initialState)) {
     throw new Error(
       `Expected initialState to be ` +
-      `a plain object, instead got: '${typeof initialState}'
-    `);
+        `a plain object, instead got: '${typeof initialState}'
+    `
+    );
   }
 
-  const setState = (nextState) => {
+  const setState = nextState => {
     if (nextState) {
-
       if (isPlainObject(nextState)) {
         checkForUndefinedKeys(currentState, nextState);
         currentState = Object.assign({}, initialState, nextState);
@@ -32,10 +32,9 @@ const observableState = (initialState) => {
     return;
   };
 
-  const render = (listener) => {
-
+  const render = listener => {
     if (!isFunction(listener)) {
-      throw new Error(`Expected listener to be a function.`)
+      throw new Error(`Expected listener to be a function.`);
     }
 
     // Setting the initial state!
@@ -58,7 +57,7 @@ const observableState = (initialState) => {
     setState,
     getState,
     render
-  }
+  };
 };
 
 export default observableState;

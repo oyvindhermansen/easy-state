@@ -1,8 +1,8 @@
-export const isPlainObject = (input) => {
+export const isPlainObject = input => {
   return !Array.isArray(input) && typeof input === 'object';
 };
 
-export const isFunction = (input) => {
+export const isFunction = input => {
   return typeof input === 'function';
 };
 
@@ -11,8 +11,8 @@ export const checkForUndefinedKeys = (currentState, nextState) => {
     if (!currentState.hasOwnProperty(key)) {
       console.warn(
         `You are trying to update the key '${key}', ` +
-        `which does not exists in the initial state object. ` +
-        `The non-existing key will be deleted from the state tree.`
+          `which does not exists in the initial state object. ` +
+          `The non-existing key will be deleted from the state tree.`
       );
 
       // Remove the non-existing key from the new state tree.
@@ -22,4 +22,4 @@ export const checkForUndefinedKeys = (currentState, nextState) => {
       delete nextState[key];
     }
   }
-}
+};

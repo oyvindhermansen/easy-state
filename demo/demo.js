@@ -2,21 +2,57 @@ import $ from 'jquery';
 import observableState from '../src/index';
 
 const store = observableState({
-  counter: 1,
-  color: 'black'
+  todos: ['Learn observableState', 'learn React', 'Some other thingy!']
 });
 
-$('.btn').on('click', () => {
+function todo(todos) {
+  return todos.map((t, index) => {
+    return `
+      <li>
+        ${t}
+        <button data-index="${index}" class="remove-todo">
+          Trash
+        </button>
+      </li>
+    `;
+  });
+}
 
-  store.setState({
-    counter: store.getState().counter + 1,
-    color: store.getState().counter % 2 ? 'salmon' : 'black',
-    lol: 'something something something'
+function app() {
+  const $body = $('body');
+  const $todosList = $('.todos-list');
+  const $input = $('.input');
+  const $addTodoBtn = $('.btn-todo');
+  const $removeBtn = '.remove-todo';
+
+  $addTodoBtn.on('click', e => handleAddTodo(e, $input));
+  $body.on('click', $removeBtn, removeTodo);
+
+  store.render(() => {
+    $todosList.html(todo(store.getState().todos));
+  });
+}
+
+function removeTodo(e) {
+  const $this = $(e.currentTarget);
+  const index = parseInt($this.attr('data-index'));
+
+  const filtered = store.getState().todos.filter((item, i) => {
+    return i != index;
   });
 
-});
+  store.setState({
+    todos: filtered
+  });
+}
 
-store.render(() => {
-  $('.counter').html(store.getState().counter);
-  $('.counter').css('color', store.getState().color);
-});
+function handleAddTodo(e, input) {
+  if (input.val() !== '') {
+    store.setState({
+      todos: [...store.getState().todos, input.val()]
+    });
+    input.val('');
+  }
+}
+
+app();

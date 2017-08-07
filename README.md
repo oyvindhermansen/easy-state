@@ -25,7 +25,7 @@ store.render(() => {
 });
 ```
 
-The beauty of the render-method is that you only need to define your UI-rendering once, and not on every state change you want to do in your application.
+The beauty of the render-method is that you only need to define your UI-rendering once, and <strong>not</strong> on every state change you want to do in your application.
 
 ### Motivation
 I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle. Top inspiration comes from React's own setState(), because I think It's super intuitive and easy to use and understand.

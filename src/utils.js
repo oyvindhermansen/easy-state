@@ -10,7 +10,7 @@ export const checkForUndefinedKeys = (currentState, nextState) => {
           `which does not exists in the initial state object. ` +
           `The non-existing key will be deleted from the state tree.`
       );
-      
+
       delete nextState[key];
     }
   }

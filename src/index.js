@@ -1,48 +1,64 @@
-import { createStore } from 'redux';
+import { isPlainObject, isFunction, checkForUndefinedKeys } from './utils';
 
-const isPlainObject = input => {
-  return !Array.isArray(input) && typeof input === 'object';
-};
-
-const setState = (initialState, nextState, renderUpdatedState) => {
-
-  if (!initialState) {
-    throw new Error(`No initial state provided.`)
-  }
+const observableState = (initialState) => {
+  let currentState = initialState;
+  const listeners = [];
 
   if (!isPlainObject(initialState)) {
-    throw new Error(`Expected initial state to be a plain object.`);
+    throw new Error(
+      `Expected initialState to be ` +
+      `a plain object, instead got: '${typeof initialState}'
+    `);
   }
 
-  const actionCreator = () => ({ type: 'SIMPLUX' });
+  const setState = (nextState) => {
+    if (nextState) {
 
-  const reducer = (state = initialState, action) => {
-    if (action.type === 'SIMPLUX') {
-
-      // Using a callback function for setting new state
-      if (typeof nextState === 'function') {
-        return Object.assign(state, nextState(state))
-      }
-
-      // Using a plain object for setting new state
       if (isPlainObject(nextState)) {
-        return Object.assign(state, nextState);
+        checkForUndefinedKeys(currentState, nextState);
+        currentState = Object.assign({}, initialState, nextState);
       }
+
+      if (isFunction(nextState)) {
+        checkForUndefinedKeys(currentState, nextState(currentState));
+        currentState = Object.assign({}, initialState, nextState(currentState));
+      }
+
+      // Make sure listeners from render is run on updated state.
+      listeners.forEach(listener => listener());
+
+      return currentState;
     }
-    return state;
-  }
+    return;
+  };
 
-  const store = createStore(reducer);
+  const render = (listener) => {
 
-  store.dispatch(actionCreator());
-
-  if (renderUpdatedState) {
-    if (typeof renderUpdatedState === 'function') {
-      renderUpdatedState(store.getState());
+    if (!isFunction(listener)) {
+      throw new Error(`Expected listener to be a function.`)
     }
+
+    // Setting the initial state!
+    listener();
+
+    // Push the listener so it can
+    // be looped in setState and
+    // rerender and sync ui at once
+    // inside render method.
+    listeners.push(listener);
+
+    return listeners;
+  };
+
+  const getState = () => {
+    return currentState;
+  };
+
+  return {
+    setState,
+    getState,
+    render
   }
+};
 
-  return nextState;
-}
-
-export default setState;
+export default observableState;

@@ -1,7 +1,7 @@
 {
-  "name": "setState",
+  "name": "observable-state",
   "version": "0.1.0",
-  "description": "Simpler state manipulation without any frameworks",
+  "description": "Simple state manipulation without any frameworks.",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -24,7 +24,6 @@
   },
   "keywords": [
     "state",
-    "setState",
     "state manipulation"
   ],
   "license": "MIT",
@@ -47,7 +46,5 @@
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0"
   },
-  "dependencies": {
-    "redux": "^3.7.2"
-  }
+  "dependencies": {}
 }

@@ -1,5 +1,36 @@
-import setState from '../src/index';
 import $ from 'jquery';
+import observableState from '../src/index';
+
+const store = observableState({
+  counter: 1,
+  color: 'black'
+});
+
+store.render(() => {
+  $('.counter').html(store.getState().counter);
+  $('.counter').css('color', store.getState().color);
+});
+
+$('.btn').on('click', () => {
+  /*
+  store.setState({
+    counter: store.getState().counter + 1,
+    color: store.getState().counter % 2 ? 'salmon' : 'red',
+    ohshit: 'nope',
+    dope: 'haha'
+  })
+  */
+  store.setState(prevState => ({
+    counter: prevState.counter + 1,
+    color: prevState.counter % 2 ? 'salmon' : 'red',
+    ohshit: 'nope',
+    dope: 'haha'
+  }));
+
+  console.log('NEXT STATE: ', store.getState())
+});
+
+/*
 
 function todo(todos) {
   return todos.map(t => `<li>${t}</li>`);
@@ -36,3 +67,4 @@ function todos() {
 }
 
 todos();
+*/

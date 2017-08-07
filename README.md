@@ -1,38 +1,36 @@
-# setState
-Simpler state manipulation without any frameworks.
-
-<small>The module is inspired by React's setState, and uses Redux in it's core.</small>
+# observableState
+Simple state manipulation without any frameworks.
 
 ## API
-This module only provides the function `setState`.
-It takes three parameteres:
+Package provides `observableState` as the initializer.
+- observableState([initialState])
 
-1. `initialState`
-2. `nextState[function(prevState)] || nextState[object]`
-3. `callback[updatedState]`
+#### The `observableState` API
 
-Example:
+<strong>`setState([nextState])`</strong>
+If you want to alter the state of your application, setState is the way to go. It can either take a plain `object` or a `function` with the prevState as argument.
 
+<strong>`getState()`</strong>
+This function is always providing you with the latest state of your application.
+
+<strong>`render([callback])`</strong>
+This method is where you render your state to your UI.
+
+### Example
 ```js
-// initialize your state tree
-const initialState = {
-  counter: 0
-};
-
-//set UI with the initial state
-yourDOMNode.innerHTML = initialState.counter;
-
-// use setState to alter the state inside a click handler
-
-btn.addEventListener('click', () => {
-
-  setState(initialState, (prevState) => ({
-    counter: prevState.counter + 1
-  }), (updatedState) => {
-    // set your UI with the updated state
-    yourDOMNode.innerHTML = updatedState.counter;
-  });
-
+// Initialize your state tree.
+const store = observableState({
+  counter: 1
 });
 
+store.getState() // { counter: 1 }
+
+store.setState(prevState => ({
+  counter: prevState.counter + 1
+}));
+
+store.getState() // { counter: 2 }
 ```
+
+### Motivation
+I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle. Top inspiration comes from React's own setState(), because I think It's super intuitive and easy to use and understand.

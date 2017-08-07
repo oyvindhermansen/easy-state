@@ -1,5 +1,5 @@
 {
-  "name": "observable-state",
+  "name": "easy-state",
   "version": "0.1.0",
   "description": "Simple state manipulation without any frameworks.",
   "main": "./lib/index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oyvindhermansen/observable-state.git"
+    "url": "git+https://github.com/oyvindhermansen/easy-state.git"
   },
   "keywords": [
     "state",

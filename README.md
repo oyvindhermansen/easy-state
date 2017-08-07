@@ -1,10 +1,10 @@
-# Observable State
+# EasyState
 Simple state manipulation without any frameworks. <br>
 
 ## Get started
 First things first; import the library:
 ```js
-import createStateTree from 'conditio';
+import createStateTree from 'easy-state';
 ```
 To get you started, initialize a state tree with the function `createStateTree`.
 ```js

@@ -10,7 +10,7 @@
     "prepublish": "npm run build",
     "dev": "webpack-dev-server --hot --inline --progress --colors --open",
     "build": "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "prettier": "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js"
+    "prettier": "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 # observableState
-Simple state manipulation without any frameworks.
+Simple state manipulation without any frameworks. <br>
 
 ## API
 Package provides `observableState` as the initializer.
@@ -7,13 +7,13 @@ Package provides `observableState` as the initializer.
 
 #### The `observableState` API
 
-<strong>`setState([nextState])`</strong>
+<strong>`setState([nextState])`</strong> <br>
 If you want to alter the state of your application, setState is the way to go. It can either take a plain `object` or a `function` with the prevState as argument.
 
-<strong>`getState()`</strong>
+<strong>`getState()`</strong> <br>
 This function is always providing you with the latest state of your application.
 
-<strong>`render([callback])`</strong>
+<strong>`render([callback])`</strong> <br>
 This method is where you render your state to your UI.
 
 ### Example

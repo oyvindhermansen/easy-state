@@ -5,11 +5,7 @@ const observableState = initialState => {
   const listeners = [];
 
   if (!isPlainObject(initialState)) {
-    throw new Error(
-      `Expected initialState to be ` +
-        `a plain object, instead got: '${typeof initialState}'
-    `
-    );
+    throw new Error(`Expected initialState to be a plain object.`);
   }
 
   const setState = nextState => {

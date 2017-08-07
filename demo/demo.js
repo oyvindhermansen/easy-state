@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import observableState from '../src/index';
+import createStateTree from '../src/index';
 
-const store = observableState({
-  todos: ['Learn observableState', 'learn React', 'Some other thingy!']
+const store = createStateTree({
+  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
 });
 
 function todo(todos) {

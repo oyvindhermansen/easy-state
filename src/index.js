@@ -1,6 +1,6 @@
 import { isPlainObject, checkForUndefinedKeys } from './utils';
 
-const observableState = initialState => {
+const createStateTree = initialState => {
   let currentState = initialState;
   const listeners = [];
 
@@ -50,4 +50,4 @@ const observableState = initialState => {
   };
 };
 
-export default observableState;
+export default createStateTree;

@@ -1,30 +1,30 @@
-import observableState from '../src/index';
+import createStateTree from '../src/index';
 global.console = { warn: jest.fn() };
 
-describe('observableState', () => {
+describe('createStateTree', () => {
   describe('top level API', () => {
     it('should throw when initial state is not a plain object', () => {
       expect(() => {
-        observableState('state');
+        createStateTree('state');
       }).toThrow();
 
       expect(() => {
-        observableState([]);
+        createStateTree([]);
       }).toThrow();
 
       expect(() => {
-        observableState(403);
+        createStateTree(403);
       }).toThrow();
 
       expect(() => {
-        observableState({});
+        createStateTree({});
       }).not.toThrow();
     });
   });
 
-  describe('observableState - getState', () => {
+  describe('createStateTree - getState', () => {
     it('should return the latest updated state at any point in time', () => {
-      const store = observableState({ counter: 1 });
+      const store = createStateTree({ counter: 1 });
 
       expect(store.getState()).toEqual({ counter: 1 });
       store.setState({ counter: 2 });
@@ -32,14 +32,14 @@ describe('observableState', () => {
     });
   });
 
-  describe('observableState - setState', () => {
+  describe('createStateTree - setState', () => {
     it('should return undefined if no next state provided', () => {
-      const store = observableState({ counter: 1 });
+      const store = createStateTree({ counter: 1 });
       expect(store.setState()).toEqual(undefined);
     });
 
     it('should throw if nextState is not a plain object', () => {
-      const store = observableState({ counter: 1 });
+      const store = createStateTree({ counter: 1 });
 
       expect(() => {
         store.setState([]);
@@ -59,15 +59,15 @@ describe('observableState', () => {
     });
 
     it('should warn the user if trying to update a non-existing key', () => {
-      const store = observableState({ counter: 1 });
+      const store = createStateTree({ counter: 1 });
       store.setState({ someUnknownKey: 'hello' });
       expect(console.warn).toBeCalled();
     });
   });
 
-  describe('observableState - render', () => {
+  describe('createStateTree - render', () => {
     it('should throw if argument is not a function', () => {
-      const store = observableState({ counter: 1 });
+      const store = createStateTree({ counter: 1 });
       expect(() => {
         store.render();
       }).toThrow();

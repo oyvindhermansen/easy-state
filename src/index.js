@@ -1,4 +1,4 @@
-import { isPlainObject, isFunction, checkForUndefinedKeys } from './utils';
+import { isPlainObject, checkForUndefinedKeys } from './utils';
 
 const observableState = initialState => {
   let currentState = initialState;
@@ -14,16 +14,13 @@ const observableState = initialState => {
 
   const setState = nextState => {
     if (nextState) {
-      if (isPlainObject(nextState)) {
-        checkForUndefinedKeys(currentState, nextState);
-        currentState = Object.assign({}, initialState, nextState);
+      if (!isPlainObject(nextState)) {
+        throw new Error(`Expected nextState to be a plain object.`);
       }
 
-      if (isFunction(nextState)) {
-        checkForUndefinedKeys(currentState, nextState(currentState));
-        currentState = Object.assign({}, initialState, nextState(currentState));
-      }
-
+      checkForUndefinedKeys(currentState, nextState);
+      // Update the state
+      currentState = Object.assign({}, initialState, nextState);
       // Make sure listeners from render is run on updated state.
       listeners.forEach(listener => listener());
 
@@ -33,17 +30,14 @@ const observableState = initialState => {
   };
 
   const render = listener => {
-    if (!isFunction(listener)) {
+    if (typeof listener !== 'function') {
       throw new Error(`Expected listener to be a function.`);
     }
 
     // Setting the initial state!
     listener();
 
-    // Push the listener so it can
-    // be looped in setState and
-    // rerender and sync ui at once
-    // inside render method.
+    // make the listeners available to setState and run them.
     listeners.push(listener);
 
     return listeners;

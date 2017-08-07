@@ -30,6 +30,11 @@ store.setState(prevState => ({
 }));
 
 store.getState() // { counter: 2 }
+
+store.render(() => {
+  // Everything in here will always be in sync with the UI.
+  yourDOMNode.innerHTML = store.getState().counter
+});
 ```
 
 ### Motivation

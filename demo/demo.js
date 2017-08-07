@@ -12,14 +12,7 @@ store.render(() => {
 });
 
 $('.btn').on('click', () => {
-  /*
-  store.setState({
-    counter: store.getState().counter + 1,
-    color: store.getState().counter % 2 ? 'salmon' : 'red',
-    ohshit: 'nope',
-    dope: 'haha'
-  })
-  */
+
   store.setState(prevState => ({
     counter: prevState.counter + 1,
     color: prevState.counter % 2 ? 'salmon' : 'red',

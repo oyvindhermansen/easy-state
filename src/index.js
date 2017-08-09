@@ -10,16 +10,25 @@ const createStateTree = initialState => {
 
   const setState = nextState => {
     if (nextState) {
-      if (!isPlainObject(nextState)) {
-        throw new Error(`Expected nextState to be a plain object.`);
+      if (isPlainObject(nextState)) {
+        checkForUndefinedKeys(currentState, nextState);
+        currentState = Object.assign({}, initialState, nextState);
+      } else if (typeof nextState === 'function') {
+        
+        /**
+         * TODO: Remove the undefined key from the currentState
+         * when using callback to set new state. 
+         */
+        checkForUndefinedKeys(currentState, nextState(currentState));
+        currentState = Object.assign({}, initialState, nextState(currentState));
+      } else {
+        throw new Error(`Expected nextState to be a plain object or a callback function.`);
       }
 
-      checkForUndefinedKeys(currentState, nextState);
-      // Update the state
-      currentState = Object.assign({}, initialState, nextState);
+      
       // Make sure listeners from render is run on updated state.
       listeners.forEach(listener => listener());
-
+      
       return currentState;
     }
     return;

@@ -3,6 +3,16 @@ global.console = { warn: jest.fn() };
 
 describe('createStateTree', () => {
   describe('top level API', () => {
+    it('should provide 3 methods off the state tree', () => {
+      const store = createStateTree({});
+      const methods = Object.keys(store);
+
+      expect(methods.length).toBe(3);
+      expect(methods).toContain('getState');
+      expect(methods).toContain('setState');
+      expect(methods).toContain('render');
+    });
+
     it('should throw when initial state is not a plain object', () => {
       expect(() => {
         createStateTree('state');

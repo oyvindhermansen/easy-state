@@ -1,7 +1,7 @@
 # EasyState
 Simple state manipulation without any frameworks. <br>
 
-## Get started
+## Getting started
 First things first; import the library:
 ```js
 import createStateTree from 'easy-state';
@@ -35,4 +35,7 @@ The beauty of the render-method is that you only need to define your UI-renderin
 > smaller pieces, to get more control over certain parts.
 
 ### Motivation
-I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle. Top inspiration comes from React's own setState(), because I think It's super intuitive and easy to use and understand.
+I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle.
+
+### Inspiration
+The library is inspired by both React and Redux. It's sort of a Redux-lib, without the reducers, action-creators and dispatching actions, but instead changing state with setState()-method like they do in React.

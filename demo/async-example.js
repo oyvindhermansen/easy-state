@@ -21,7 +21,7 @@ function post(posts) {
 function app() {
   fetchUsers();
 
-  store.render(() => {
+  store.subscribe(() => {
     const { posts } = store.getState();
     const renderPosts = posts.length ? post(posts) : '<h1>Loading!</h1>';
     $('body').html(renderPosts);

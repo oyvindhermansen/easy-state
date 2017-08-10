@@ -10,7 +10,7 @@ function app() {
 
   $('button').on('click', handleIncrement);
 
-  store.render(() => {
+  store.subscribe(() => {
     $('.counterElem').html(counter);
   });
 }

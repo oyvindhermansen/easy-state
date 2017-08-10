@@ -2,7 +2,7 @@ import $ from 'jquery';
 import createStateTree from '../src/index';
 
 const store = createStateTree({
-  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!'],
+  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
 });
 
 function todo(todos) {
@@ -54,11 +54,11 @@ function handleAddTodo(e, input) {
       counter: 1
     });
     */
-    store.setState((prevState) => {
+    store.setState(prevState => {
       return {
         todos: [...prevState.todos, input.val()]
-      }
-    })
+      };
+    });
 
     console.log('AFTER SETSTATE: ', store.getState());
     input.val('');

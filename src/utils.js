@@ -7,7 +7,7 @@ export const checkForUndefinedKeys = (currentState, nextState) => {
     if (!currentState.hasOwnProperty(key)) {
       console.warn(
         `You are trying to update the key '${key}', ` +
-        `which does not exists in the initial state object.`
+          `which does not exists in the initial state object.`
       );
     }
   }

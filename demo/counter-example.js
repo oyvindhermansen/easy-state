@@ -12,7 +12,7 @@ function app() {
 
   store.render(() => {
     $('.counterElem').html(counter);
-  })
+  });
 }
 
 function handleIncrement() {

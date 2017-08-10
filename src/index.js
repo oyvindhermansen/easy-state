@@ -40,7 +40,9 @@ const createStateTree = initialState => {
         checkForUndefinedKeys(currentState, nextState(currentState));
         currentState = Object.assign({}, initialState, nextState(currentState));
       } else {
-        throw new Error(`Expected nextState to be a plain object or a callback function.`);
+        throw new Error(
+          `Expected nextState to be a plain object or a callback function.`
+        );
       }
 
       /**
@@ -48,7 +50,7 @@ const createStateTree = initialState => {
        * is run every time setState is called
        */
       listeners.forEach(listener => listener());
-      
+
       return nextState;
     }
     return;
@@ -68,13 +70,15 @@ const createStateTree = initialState => {
     /**
      * Running the listener at once for 
      * setting the initial state.
-     */ 
+     */
+
     listener();
 
     /**
      * make the listeners available 
      * to setState and run them.
-     */ 
+     */
+
     listeners.push(listener);
 
     return listeners;

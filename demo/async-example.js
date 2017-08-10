@@ -3,7 +3,7 @@ import createStateTree from '../src/index';
 
 const store = createStateTree({
   posts: []
-})
+});
 
 function fetchUsers() {
   return fetch('https://jsonplaceholder.typicode.com/posts')
@@ -23,7 +23,7 @@ function app() {
 
   store.render(() => {
     const { posts } = store.getState();
-    const renderPosts = posts.length ? post(posts) : '<h1>Loading!</h1>'
+    const renderPosts = posts.length ? post(posts) : '<h1>Loading!</h1>';
     $('body').html(renderPosts);
   });
 }

@@ -56,8 +56,7 @@ function handleAddTodo(e, input) {
     */
     store.setState((prevState) => {
       return {
-        todos: [...prevState.todos, input.val()],
-        counter: 1
+        todos: [...prevState.todos, input.val()]
       }
     })
 

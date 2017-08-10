@@ -21,14 +21,14 @@ store.setState({
   counter: 2
 });
 ```
-To render and keep your UI in sync with your state, use `subscribe`:
+Keep your UI in sync with your state by using `subscribe`:
 ```js
 store.subscribe(() => {
   myDOMElement.innerHTML = store.getState().counter
 });
 ```
 
-The beauty of the render-method is that you only need to define your UI-rendering once, and <strong>not</strong> on every state change you want to do in your application.
+The beauty of the subscribe-method is that you only need to define your UI-rendering once, and <strong>not</strong> on every state change you want to do in your application.
 
 > For larger applications you can divide your stores into
 > smaller pieces, to get more control over certain parts.

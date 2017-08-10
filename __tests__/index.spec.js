@@ -10,7 +10,7 @@ describe('createStateTree', () => {
       expect(methods.length).toBe(3);
       expect(methods).toContain('getState');
       expect(methods).toContain('setState');
-      expect(methods).toContain('render');
+      expect(methods).toContain('subscribe');
     });
 
     it('should throw when initial state is not a plain object', () => {
@@ -87,27 +87,27 @@ describe('createStateTree', () => {
     });
   });
 
-  describe('createStateTree - render', () => {
+  describe('createStateTree - subscribe', () => {
     it('should throw if argument is not a function', () => {
       const store = createStateTree({ counter: 1 });
       expect(() => {
-        store.render();
+        store.subscribe();
       }).toThrow();
 
       expect(() => {
-        store.render('');
+        store.subscribe('');
       }).toThrow();
 
       expect(() => {
-        store.render(4);
+        store.subscribe(4);
       }).toThrow();
 
       expect(() => {
-        store.render([]);
+        store.subscribe([]);
       }).toThrow();
 
       expect(() => {
-        store.render(() => {});
+        store.subscribe(() => {});
       }).not.toThrow();
     });
   });

@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage && codecov",
     "test:watch": "jest --watch",
     "prepublish": "npm run build",
     "dev": "webpack-dev-server --hot --inline --progress --colors --open",
@@ -20,6 +20,10 @@
     "state",
     "state manipulation"
   ],
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -36,5 +40,7 @@
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "codecov": "^2.3.0"
+  }
 }

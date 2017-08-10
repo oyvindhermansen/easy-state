@@ -71,6 +71,18 @@ describe('createStateTree', () => {
     it('should warn the user if trying to update a non-existing key', () => {
       const store = createStateTree({ counter: 1 });
       store.setState({ someUnknownKey: 'hello' });
+
+      expect(console.warn).toBeCalled();
+    });
+
+    it('should warn the user if trying to update a non-existing key when using callback on setState', () => {
+      const store = createStateTree({ counter: 1 });
+      store.setState(prevState => {
+        return {
+          hello: 'world'
+        };
+      });
+
       expect(console.warn).toBeCalled();
     });
   });

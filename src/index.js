@@ -6,7 +6,7 @@ import { isPlainObject, checkForUndefinedKeys } from './utils';
  * @param {Object} initialState 
  * @return {Function} getState
  * @return {Function} setState
- * @return {Function} render
+ * @return {Function} subscribe
  */
 const createStateTree = initialState => {
   let currentState = initialState;
@@ -49,6 +49,7 @@ const createStateTree = initialState => {
        * Make sure listeners from render
        * is run every time setState is called
        */
+
       listeners.forEach(listener => listener());
 
       return nextState;
@@ -57,12 +58,12 @@ const createStateTree = initialState => {
   };
 
   /**
-   * render - The only way to subscribe to state changes
+   * subscribe - The only way to subscribe to state changes
    * and keep your UI in sync with the application's state.
    * @param {Function} listener 
    * @return {Array} listeners
    */
-  const render = listener => {
+  const subscribe = listener => {
     if (typeof listener !== 'function') {
       throw new Error(`Expected listener to be a function.`);
     }
@@ -87,7 +88,7 @@ const createStateTree = initialState => {
   return {
     setState,
     getState,
-    render
+    subscribe
   };
 };
 

@@ -21,9 +21,9 @@ store.setState({
   counter: 2
 });
 ```
-To render and keep your UI in sync with your state, use `render`:
+To render and keep your UI in sync with your state, use `subscribe`:
 ```js
-store.render(() => {
+store.subscribe(() => {
   myDOMElement.innerHTML = store.getState().counter
 });
 ```

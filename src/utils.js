@@ -5,17 +5,10 @@ export const isPlainObject = input => {
 export const checkForUndefinedKeys = (currentState, nextState) => {
   for (let key in nextState) {
     if (!currentState.hasOwnProperty(key)) {
-      console.log({
-        currentState,
-        nextState
-      })
       console.warn(
         `You are trying to update the key '${key}', ` +
-          `which does not exists in the initial state object. ` +
-          `The non-existing key will be deleted from the state tree.`
+        `which does not exists in the initial state object.`
       );
-
-      delete nextState[key];
     }
   }
 };

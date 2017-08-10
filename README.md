@@ -1,5 +1,6 @@
 # EasyState
 Simple state manipulation without any frameworks. <br>
+[![Build Status](https://travis-ci.org/oyvindhermansen/easy-state.svg?branch=master)](https://travis-ci.org/oyvindhermansen/easy-state)
 
 ## Getting started
 

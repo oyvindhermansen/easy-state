@@ -1,6 +1,7 @@
 # EasyState
-Simple state manipulation without any frameworks. <br>
-[![Build Status](https://travis-ci.org/oyvindhermansen/easy-state.svg?branch=master)](https://travis-ci.org/oyvindhermansen/easy-state)
+Simple state manipulation without any frameworks. 
+<br><br>
+[![Build Status](https://travis-ci.org/oyvindhermansen/easy-state.svg?branch=master)](https://travis-ci.org/oyvindhermansen/easy-state) [![codecov](https://codecov.io/gh/oyvindhermansen/easy-state/branch/master/graph/badge.svg)](https://codecov.io/gh/oyvindhermansen/easy-state)
 
 ## Getting started
 

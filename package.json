@@ -38,9 +38,8 @@
     "prettier": "^1.4.4",
     "webpack": "latest",
     "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.18.0"
-  },
-  "dependencies": {
+    "webpack-hot-middleware": "^2.18.0",
     "codecov": "^2.3.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import createStateTree from '../src/index';
+import { createStateTree, combineStores } from '../src/index';
 
 class TodoApp {
   constructor() {

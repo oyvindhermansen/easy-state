@@ -53,8 +53,8 @@ const renderTodos = todos => {
 renderTodos(store.getState().todos);
 initEventListeners();
 
-store.subscribe((state, prevState) => {
-  if (state.todos !== prevState.todos) {
-    renderTodos(state.todos);
+store.subscribe((prevState, nextState) => {
+  if (nextState.todos !== prevState.todos) {
+    renderTodos(nextState.todos);
   }
 });

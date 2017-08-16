@@ -57,7 +57,7 @@ const createStateTree = initialState => {
        * is run every time setState is called
        */
 
-      listeners.forEach(listener => listener(currentState, previousState));
+      listeners.forEach(listener => listener(previousState, currentState));
 
       return nextState;
     }

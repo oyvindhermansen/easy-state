@@ -6,7 +6,7 @@ Simple state manipulation without any frameworks.
 ## Getting started
 First things first; import the module:
 ```js
-import { createStateTree } from 'easy-state';
+import createStateTree from 'easy-state';
 ```
 To get you started, initialize a state tree with the function `createStateTree`.
 ```js

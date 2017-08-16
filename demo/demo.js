@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { createStateTree, combineStores } from '../src/index';
+import createStateTree from '../src/index';
 
 const store = createStateTree({
   todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']

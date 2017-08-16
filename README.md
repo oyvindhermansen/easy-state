@@ -6,7 +6,7 @@ Simple state manipulation without any frameworks.
 ## Getting started
 First things first; import the module:
 ```js
-import { createStateTree } from 'easy-state';
+import createStateTree from 'easy-state';
 ```
 To get you started, initialize a state tree with the function `createStateTree`.
 ```js
@@ -26,40 +26,82 @@ store.setState({
 ```
 Keep your UI in sync with your state by using `subscribe`:
 ```js
-store.subscribe(() => {
-  myDOMElement.innerHTML = store.getState().counter
+store.subscribe((prevState, nextState) => {
+  DOMElement.innerHTML = nextState.counter;
 });
 ```
-
-The beauty of the subscribe-method is that you only need to define your UI-rendering once, and <strong>not</strong> on every state change you want to do in your application.
 
 > For larger applications you can divide your stores into
 > smaller pieces, to get more control over certain parts.
 
-
-If you want to have more control over your applications state with multiple
-stores, you can use the function `combineStores` that `easy-state` provides.
+Counter-example:
 ```js
-import { createStateTree, combineStores } from 'easy-state';
+const store = createStateTree({ counter: 0 });
 
-const storeOne = createStateTree({ hello: 'world' });
-const storeTwo = createStateTree({ foo: 'bar' });
+const initEventListeners = () => {
+  myIncrementButton.addEventListener('click', handleIncrement);
+  myDecrementButton.addEventListener('click', handleDecrement);
+};
 
-// init rootStore and pass the other stores to it.
-const store = combineStores({
-  storeOne,
-  storeTwo
-});
+const handleIncrement = () => {
+  const counter = store.getState().counter;
+  store.setState({ counter: counter + 1 });
+}
 
-// Then you can use it like this:
-store.storeOne.getState();
-store.storeOne.setState({ hello: 'something new' });
+const handleDecrement = () => {
+  const counter = store.getState().counter;
+  store.setState({ counter: counter - 1 });
+}
 
-// and you can listen to the store you want:
-store.storeTwo.subscribe(() => {
-  // render some HTML here and it will only listen to storeTwo.
+const renderCounter = (counter) => {
+  myDOMCounterElement.innerHTML = counter;
+}
+
+initEventListeners();
+renderCounter(store.getState().counter);
+
+store.subscribe((prevState, nextState) => {
+  renderCounter(nextState.counter);
 });
 ```
+
+### Developing easy-state
+
+Install
+```sh
+$ git clone https://github.com/oyvindhermansen/easy-state.git
+$ cd easy-state
+$ yarn install
+```
+
+Run the demo whitch is powered by webpack and webpack dev-server.
+The dev-server listens for changes in both `demo/` and `src/`, so you can write module implementation and testing it in the browser at the same time.
+```sh
+$ yarn dev
+```
+
+Unit testing
+```sh
+$ yarn test
+$ yarn test:watch
+```
+
+Test coverage
+```sh
+$ yarn coverage
+```
+
+Prettier
+```sh
+# Targets src, demo and __tests__ folders.
+$ yarn prettier
+```
+
+Build for production
+```sh
+$ yarn build
+```
+
 
 ### Motivation
 I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle.

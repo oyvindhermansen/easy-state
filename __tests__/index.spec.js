@@ -1,4 +1,4 @@
-import { createStateTree, combineStores } from '../src/index';
+import createStateTree from '../src/index';
 global.console = { warn: jest.fn() };
 
 describe('createStateTree', () => {
@@ -110,42 +110,5 @@ describe('createStateTree', () => {
         store.subscribe(() => {});
       }).not.toThrow();
     });
-  });
-});
-
-describe('combineStores', () => {
-  it('should throw if stores is not a plain object', () => {
-    expect(() => {
-      combineStores([]);
-    }).toThrow();
-
-    expect(() => {
-      combineStores('');
-    }).toThrow();
-
-    expect(() => {
-      combineStores(23432);
-    }).toThrow();
-
-    expect(() => {
-      combineStores(() => {});
-    }).toThrow();
-
-    expect(() => {
-      combineStores({});
-    }).not.toThrow();
-  });
-
-  it('should make multiple stores available through the rootStore', () => {
-    const storeOne = createStateTree({ hello: 'world' });
-    const storeTwo = createStateTree({ foo: 'bar' });
-
-    const rootStore = combineStores({
-      storeOne,
-      storeTwo
-    });
-
-    expect(rootStore.storeOne.getState()).toEqual({ hello: 'world' });
-    expect(rootStore.storeTwo.getState()).toEqual({ foo: 'bar' });
   });
 });

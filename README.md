@@ -65,6 +65,20 @@ store.subscribe((prevState, nextState) => {
 });
 ```
 
+### Developing easy-state
+
+Install
+```sh
+$ git clone https://github.com/oyvindhermansen/easy-state.git
+$ cd easy-state
+$ yarn install
+```
+
+Run the demo:
+```sh
+$ yarn dev
+```
+
 ### Motivation
 I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle.
 

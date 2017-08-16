@@ -72,13 +72,6 @@ const createStateTree = initialState => {
     }
 
     /**
-     * Running the listener at once for
-     * setting the initial state.
-     */
-
-    listener(currentState, previousState);
-
-    /**
      * make the listeners available
      * to setState and run them.
      */

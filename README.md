@@ -74,10 +74,34 @@ $ cd easy-state
 $ yarn install
 ```
 
-Run the demo:
+Run the demo whitch is powered by webpack and webpack dev-server.
+The dev-server listens for changes in both `demo/` and `src/`, so you can write module implementation and testing it in the browser at the same time.
 ```sh
 $ yarn dev
 ```
+
+Unit testing
+```sh
+$ yarn test
+$ yarn test:watch
+```
+
+Test coverage
+```sh
+$ yarn coverage
+```
+
+Prettier
+```sh
+# Targets src, demo and __tests__ folders.
+$ yarn prettier
+```
+
+Build for production
+```sh
+$ yarn build
+```
+
 
 ### Motivation
 I've often come across projects that needed to use plain jquery or vanilla JavaScript instead of any frameworks e.g React or VueJS, and there is one thing I've missed: Possibilty to have application state in sync with my UI without any hassle.

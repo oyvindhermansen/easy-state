@@ -1,69 +1,60 @@
 import $ from 'jquery';
 import { createStateTree, combineStores } from '../src/index';
 
-class TodoApp {
-  constructor() {
-    this.store = createStateTree({
-      todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
+const store = createStateTree({
+  todos: ["Learn createStateTree", "learn React", "Some other thingy!"],
+});
+
+const $body = $('body');
+const $todosList = $('.todos-list');
+const $input = $('.input');
+const $addTodoBtn = $('.btn-todo');
+
+const addTodo = (e, input) => {
+  if (input.val() !== '') {
+    store.setState(prevState => {
+      return {
+        todos: [...prevState.todos, input.val()]
+      };
     });
 
-    this.$body = $('body');
-    this.$todosList = $('.todos-list');
-    this.$input = $('.input');
-    this.$addTodoBtn = $('.btn-todo');
-    this.$removeBtn = '.remove-todo';
-    this.initEventListeners();
-    this.render();
+    input.val('');
   }
+}
 
-  initEventListeners() {
-    this.$addTodoBtn.on('click', e => this.handleAddTodo(e, this.$input));
-    this.$body.on('click', this.$removeBtn, e => this.removeTodo(e));
-  }
+const removeTodo = e => {
+  const $this = $(e.currentTarget);
+  const index = parseInt($this.attr('data-index'), 10);
+  const filtered = store.getState().todos.filter((item, i) => i != index);
+  store.setState({ todos: filtered });
+}
 
-  handleAddTodo(e, input) {
-    if (input.val() !== '') {
-      this.store.setState(prevState => {
-        return {
-          todos: [...prevState.todos, input.val()]
-        };
-      });
+const initEventListeners = () => {
+  $addTodoBtn.on('click', e => addTodo(e, $input));
+  $body.on('click', '.remove-todo', e => removeTodo(e));
+}
 
-      input.val('');
-    }
-  }
-
-  removeTodo(e) {
-    const $this = $(e.currentTarget);
-    const index = parseInt($this.attr('data-index'));
-
-    const filtered = this.store.getState().todos.filter((item, i) => {
-      return i != index;
-    });
-
-    this.store.setState({
-      todos: filtered
-    });
-  }
-
-  todo(todos) {
-    return todos.map((t, index) => {
-      return `
+const todoList = todos =>
+  todos.map(
+    (t, index) => `
         <li>
           ${t}
           <button data-index="${index}" class="remove-todo">
             Trash
           </button>
         </li>
-      `;
-    });
-  }
+      `
+  );
 
-  render() {
-    this.store.subscribe(() => {
-      this.$todosList.html(this.todo(this.store.getState().todos));
-    });
-  }
-}
+const renderTodos = todos => {
+  $todosList.html(todoList(todos));
+};
 
-new TodoApp();
+renderTodos(store.getState().todos);
+initEventListeners();
+
+store.subscribe((state, prevState) => {
+  if (state.todos !== prevState.todos) {
+    renderTodos(state.todos);
+  }
+});

@@ -10,6 +10,7 @@ import { isPlainObject, checkForUndefinedKeys } from './utils';
  */
 const createStateTree = initialState => {
   let currentState = initialState;
+  let previousState = currentState;
   const listeners = [];
 
   if (!isPlainObject(initialState)) {
@@ -33,12 +34,18 @@ const createStateTree = initialState => {
    */
   const setState = nextState => {
     if (nextState) {
+      previousState = currentState;
+
       if (isPlainObject(nextState)) {
-        checkForUndefinedKeys(currentState, nextState);
+        checkForUndefinedKeys(previousState, nextState);
         currentState = Object.assign({}, initialState, nextState);
       } else if (typeof nextState === 'function') {
-        checkForUndefinedKeys(currentState, nextState(currentState));
-        currentState = Object.assign({}, initialState, nextState(currentState));
+        checkForUndefinedKeys(previousState, nextState(previousState));
+        currentState = Object.assign(
+          {},
+          initialState,
+          nextState(previousState)
+        );
       } else {
         throw new Error(
           `Expected nextState to be a plain object or a callback function.`
@@ -50,7 +57,7 @@ const createStateTree = initialState => {
        * is run every time setState is called
        */
 
-      listeners.forEach(listener => listener());
+      listeners.forEach(listener => listener(currentState, previousState));
 
       return nextState;
     }
@@ -67,13 +74,6 @@ const createStateTree = initialState => {
     if (typeof listener !== 'function') {
       throw new Error(`Expected listener to be a function.`);
     }
-
-    /**
-     * Running the listener at once for
-     * setting the initial state.
-     */
-
-    listener();
 
     /**
      * make the listeners available

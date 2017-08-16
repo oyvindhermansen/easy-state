@@ -41,7 +41,11 @@ const createStateTree = initialState => {
         currentState = Object.assign({}, initialState, nextState);
       } else if (typeof nextState === 'function') {
         checkForUndefinedKeys(previousState, nextState(previousState));
-        currentState = Object.assign({}, initialState, nextState(previousState));
+        currentState = Object.assign(
+          {},
+          initialState,
+          nextState(previousState)
+        );
       } else {
         throw new Error(
           `Expected nextState to be a plain object or a callback function.`

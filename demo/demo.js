@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { createStateTree, combineStores } from '../src/index';
 
 const store = createStateTree({
-  todos: ["Learn createStateTree", "learn React", "Some other thingy!"],
+  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
 });
 
 const $body = $('body');
@@ -20,19 +20,19 @@ const addTodo = (e, input) => {
 
     input.val('');
   }
-}
+};
 
 const removeTodo = e => {
   const $this = $(e.currentTarget);
   const index = parseInt($this.attr('data-index'), 10);
   const filtered = store.getState().todos.filter((item, i) => i != index);
   store.setState({ todos: filtered });
-}
+};
 
 const initEventListeners = () => {
   $addTodoBtn.on('click', e => addTodo(e, $input));
   $body.on('click', '.remove-todo', e => removeTodo(e));
-}
+};
 
 const todoList = todos =>
   todos.map(

@@ -7,7 +7,19 @@
 **/
 
 const logger = store => {
-  return store.subscribe((prevState, nextState) => {
+  if (!store) {
+    throw new Error(`No easyState store was provided.`);
+  }
+
+  if (
+    !store.hasOwnProperty('getState') ||
+    !store.hasOwnProperty('setState') ||
+    !store.hasOwnProperty('subscribe')
+  ) {
+    throw new Error(`Expected an object passed to 'createStateTree'.`);
+  }
+
+  store.subscribe((prevState, nextState) => {
     console.log(
       '%c Previous state ',
       'font-size: 12px; color: blue; font-weight: bold',

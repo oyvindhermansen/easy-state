@@ -1,9 +1,11 @@
 import $ from 'jquery';
-import createStateTree from '../src/index';
+import createStateTree, { logger } from '../src/index';
 
 const store = createStateTree({
   todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
 });
+
+logger(store);
 
 const $body = $('body');
 const $todosList = $('.todos-list');

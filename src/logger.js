@@ -21,7 +21,7 @@ const logger = store => {
 
   store.subscribe((prevState, nextState) => {
     console.log(
-      '%c Previous state ',
+      '%c Prev state ',
       'font-size: 12px; color: blue; font-weight: bold',
       prevState
     );

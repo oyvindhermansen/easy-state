@@ -20,7 +20,7 @@ const logger = store => {
     !store.hasOwnProperty('setState') ||
     !store.hasOwnProperty('subscribe')
   ) {
-    throw new Error(`Expected an object passed to 'createStateTree'.`);
+    throw new Error(`Expected an easy-state store but got '${store}'`);
   }
 
   store.subscribe((prevState, nextState) => {

@@ -1,9 +1,13 @@
 import $ from 'jquery';
-import createStateTree from '../src/index';
+import createStateTree, { logger } from '../src/index';
 
 const store = createStateTree({
   todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
 });
+
+// Logs next and previous state in the console.
+// This should only be runned in development environments.
+logger(store);
 
 const $body = $('body');
 const $todosList = $('.todos-list');

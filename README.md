@@ -66,7 +66,7 @@ store.subscribe((prevState, nextState) => {
 > smaller pieces, to get more control over certain parts.
 
 ## Logger
-EasyState also provides a logger to make the developer experience better.
+Easy-state also provides a logger to make the developer experience better.
 It takes the advantage of the subscribe method provided from `createStateTree` to log `prev` and `next` state to the console on every state change.
 
 ![alt text](./demo/logger_easy_state.png)

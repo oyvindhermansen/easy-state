@@ -1,4 +1,4 @@
-# EasyState
+# Easy-state
 Simple state manipulation without any frameworks.
 <br><br>
 [![Build Status](https://travis-ci.org/oyvindhermansen/easy-state.svg?branch=master)](https://travis-ci.org/oyvindhermansen/easy-state) [![codecov](https://codecov.io/gh/oyvindhermansen/easy-state/branch/master/graph/badge.svg)](https://codecov.io/gh/oyvindhermansen/easy-state)
@@ -31,10 +31,7 @@ store.subscribe((prevState, nextState) => {
 });
 ```
 
-> For larger applications you can divide your stores into
-> smaller pieces, to get more control over certain parts.
-
-Counter-example:
+## Counter-example:
 ```js
 const store = createStateTree({ counter: 0 });
 
@@ -63,6 +60,29 @@ renderCounter(store.getState().counter);
 store.subscribe((prevState, nextState) => {
   renderCounter(nextState.counter);
 });
+```
+
+> For larger applications you can divide your stores into
+> smaller pieces, to get more control over certain parts.
+
+## Logger
+EasyState also provides a logger to make the developer experience better.
+It takes the advantage of the subscribe method provided from `createStateTree` to log `prev` and `next` state to the console on every state change.
+
+![alt text](./demo/logger_easy_state.png)
+
+> NB: You should remove the logger before shipping to production.
+
+Here's how to use it:
+```js
+import createStateTree, { logger } from 'easy-state';
+
+const store = createStateTree({ counter: 1 });
+
+/**
+* Pass the store to the logger
+**/
+logger(store)
 ```
 
 ### Developing easy-state

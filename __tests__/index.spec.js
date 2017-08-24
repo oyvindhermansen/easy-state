@@ -1,5 +1,5 @@
-import createStateTree from '../src/index';
-global.console = { warn: jest.fn() };
+import createStateTree, { logger } from '../src/index';
+global.console = { warn: jest.fn(), log: jest.fn() };
 
 describe('createStateTree', () => {
   describe('top level API', () => {
@@ -109,6 +109,31 @@ describe('createStateTree', () => {
       expect(() => {
         store.subscribe(() => {});
       }).not.toThrow();
+    });
+  });
+
+  describe('logger', () => {
+    it('should throw if no store is provided', () => {
+      expect(() => {
+        logger();
+      }).toThrow();
+    });
+
+    it('should throw if store is not an instance of createStateTree', () => {
+      const fakeStore = { counter: 1 };
+
+      expect(() => {
+        logger(fakeStore);
+      }).toThrow();
+    });
+
+    it('should log the prev and next state to the console if state changes', () => {
+      const store = createStateTree({ counter: 1 });
+
+      logger(store);
+      store.setState({ counter: 2 });
+
+      expect(console.warn).toBeCalled();
     });
   });
 });

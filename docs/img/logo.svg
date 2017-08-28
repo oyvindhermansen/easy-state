@@ -1,0 +1,22 @@
+<svg width="531" height="291" viewBox="0 0 531 291" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Component</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(232 287)">
+<g id="Component">
+<g id="Polygon">
+<use xlink:href="#path0_fill" transform="translate(-232 -159)" fill="#56CCF2"/>
+</g>
+<g id="Polygon 2">
+<use xlink:href="#path1_fill" transform="matrix(0.60029 0.799782 -0.799782 0.60029 64.3514 -287)" fill="#56CCF2"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(-60 -240)" fill="#56CCF2"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 265.5 0L 495.43 78L 35.5703 78L 265.5 0Z"/>
+<path id="path1_fill" d="M 98 0L 182.87 167.25L 13.1295 167.25L 98 0Z"/>
+<path id="path2_fill" d="M 26 169.666C 26 169.666 74 268.667 197 82.6667C 320 -103.333 0 82.6667 0 82.6667L 26 169.666Z"/>
+</defs>
+</svg>

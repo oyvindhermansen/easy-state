@@ -1,0 +1,35 @@
+@import 'variables';
+
+.hero {
+  padding: $gutter * 4 0;
+  color: $white;
+
+  @media all and (max-width: $gutter * 40) {
+    padding: $gutter * 2 0;
+  }
+
+  &-content {
+    text-align: center;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: $gutter * 2;
+      font-size: $gutter * 5;
+      line-height: 80px;
+
+      @media all and (max-width: $gutter * 40) {
+        font-size: $gutter * 3;
+        line-height: 50px;
+      }
+    }
+  }
+
+  &-button-section > .button {
+    margin: 0 10px;
+
+    @media all and (max-width: $gutter * 40) {
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+}

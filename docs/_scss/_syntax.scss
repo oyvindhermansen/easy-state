@@ -1,16 +1,20 @@
+@import 'variables';
+
 code {
   /* Overriding foundation styles */
   border: 0 !important;
   background: transparent !important;
+  color: $white !important;
 }
 
 .highlight pre code {
-  color: #637c84;
+  color: $white;
 }
 
 .highlight {
-  color: #333333;
+  color: $white;
   background: #333333;
+  padding: $gutter;
 }
 
 .highlight .c {
@@ -375,7 +379,7 @@ code {
 /* Literal.String.Regex */
 
 .highlight .s1 {
-  color: #36958e;
+  color: #90C290;
 }
 
 /* Literal.String.Single */

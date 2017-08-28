@@ -8,15 +8,25 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-image: url('/easy-state/img/bg.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+h1, h2, h3, h4, h5, h6, .logo, a {
+  font-family: 'Paytone One', sans-serif !important;
   font-weight: 500;
 }
 
-.logo {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-  font-weight: 500;
+.content {
+  margin-top: $gutter * 2;
+
+  @media all and (max-width: $gutter * 40) {
+    margin-top: $gutter;
+  }
+}
+
+.column-small {
+  max-width: 50rem;
 }

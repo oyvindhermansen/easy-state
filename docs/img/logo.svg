@@ -4,13 +4,13 @@
 <g id="Canvas" transform="translate(232 287)">
 <g id="Component">
 <g id="Polygon">
-<use xlink:href="#path0_fill" transform="translate(-232 -159)" fill="#56CCF2"/>
+<use xlink:href="#path0_fill" transform="translate(-232 -159)" fill="#EB5757"/>
 </g>
 <g id="Polygon 2">
-<use xlink:href="#path1_fill" transform="matrix(0.60029 0.799782 -0.799782 0.60029 64.3514 -287)" fill="#56CCF2"/>
+<use xlink:href="#path1_fill" transform="matrix(0.60029 0.799782 -0.799782 0.60029 64.3514 -287)" fill="#EB5757"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path2_fill" transform="translate(-60 -240)" fill="#56CCF2"/>
+<use xlink:href="#path2_fill" transform="translate(-60 -240)" fill="#EB5757"/>
 </g>
 </g>
 </g>

@@ -2,14 +2,71 @@
 
 .header {
   height: 60px;
-  background: $background-dark;
+  background: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  line-height: 60px;
+
+  @media all and (max-width: $gutter * 40) {
+    height: auto;
+    padding-top: $gutter;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+
+    @media all and (max-width: $gutter * 40) {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 
   &-logo {
+    color: $black;
+    position: relative;
+    font-weight: bold;
+    height: 60px;
+
+    &:hover {
+      color: $black;
+    }
 
     img {
       width: 70px;
+      height: 60px;
+    }
+  }
+
+  &-navigation {
+    padding: 0;
+
+    @media all and (max-width: $gutter * 40) {
+      margin-top: $gutter;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        line-height: 60px;
+        display: inline-block;
+        margin-left: 15px;
+
+        @media all and (max-width: $gutter * 40) {
+          line-height: 20px;
+        }
+
+        a {
+          transition: color 0.1s ease-in-out;
+          text-transform: uppercase;
+          font-size: 14px;
+          color: $red;
+
+          &:hover {
+            color: $dark;
+          }
+        }
+      }
     }
   }
 }

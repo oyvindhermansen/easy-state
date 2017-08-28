@@ -2,9 +2,13 @@
 layout: default
 ---
 
+{% if page.id == 'home' %}
+  {% include hero.html %}
+{% endif %}
+
 <section class="content">
     <div class="row">
-        <div class="column">
+        <div class="column medium-8 medium-centered">
             {{ content }}
         </div>
     </div>

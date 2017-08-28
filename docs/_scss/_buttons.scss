@@ -1,0 +1,27 @@
+@import 'variables';
+
+.button {
+  transition: all 0.1s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  border: 0;
+  border-radius: 4px !important;
+  cursor: pointer;
+  padding: $gutter $gutter * 3 !important;
+  text-transform: uppercase;
+  box-shadow: 20px 20px 5px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transition: all 0.1s ease-in-out;
+    transform: translateY(-4px);
+  }
+}
+
+.button.button-primary {
+  background: $dark !important;
+}
+
+.button.button-secondary {
+  background: #EAE151 !important;
+  color: $black !important;
+}

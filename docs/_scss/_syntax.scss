@@ -15,6 +15,7 @@ code {
   color: $white;
   background: #333333;
   padding: $gutter;
+  overflow-x: auto;
 }
 
 .highlight .c {
@@ -59,7 +60,7 @@ code {
 /* Other */
 
 .highlight .p {
-  color: #637c84;
+  color: #ffc600;
 }
 
 /* Punctuation */

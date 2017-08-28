@@ -4,10 +4,16 @@
   height: 60px;
   background: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 1;
 
   @media all and (max-width: $gutter * 40) {
     height: auto;
     padding-top: $gutter;
+    position: relative;
   }
 
   &-container {
@@ -47,6 +53,10 @@
     ul {
       list-style: none;
 
+      @media all and (max-width: $gutter * 40) {
+        margin-left: 0;
+      }
+
       li {
         line-height: 60px;
         display: inline-block;
@@ -54,6 +64,8 @@
 
         @media all and (max-width: $gutter * 40) {
           line-height: 20px;
+          margin-left: 0;
+          margin-right: 10px;
         }
 
         a {

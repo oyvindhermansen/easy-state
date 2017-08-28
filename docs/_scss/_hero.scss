@@ -1,11 +1,14 @@
 @import 'variables';
 
 .hero {
-  padding: $gutter * 4 0;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
   color: $white;
 
   @media all and (max-width: $gutter * 40) {
-    padding: $gutter * 2 0;
+    padding: 0;
+    align-items: flex-start;
   }
 
   &-content {
@@ -16,6 +19,7 @@
       margin-bottom: $gutter * 2;
       font-size: $gutter * 5;
       line-height: 80px;
+      font-weight: 800;
 
       @media all and (max-width: $gutter * 40) {
         font-size: $gutter * 3;
@@ -24,12 +28,16 @@
     }
   }
 
-  &-button-section > .button {
-    margin: 0 10px;
+  &-button-section {
+    margin-top: $gutter * 3;
 
-    @media all and (max-width: $gutter * 40) {
-      margin: 10px 0;
-      width: 100%;
+    .button {
+      margin: 0 10px;
+
+      @media all and (max-width: $gutter * 40) {
+        margin: 10px 0;
+        width: 100%;
+      }
     }
   }
 }

@@ -26,10 +26,20 @@ h1, h2, h3, h4, h5, h6, .logo, a, button {
 
 h2, h3, h4, h4, h5, h6 {
   margin-top: $gutter * 3 !important;
+
+  @media all and (max-width: $gutter * 40) {
+    margin-top: $gutter * 1.5 !important;
+  }
 }
 
 h3 {
   font-size: $gutter * 1.1 !important;
+}
+
+@media all and (max-width: $gutter * 40) {
+  h1 {
+    font-size: $gutter * 1.5 !important;
+  }
 }
 
 .content {
@@ -40,6 +50,11 @@ h3 {
     margin-top: $gutter;
   }
 
+  &-home {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
   &-inner {
     background: $white;
     padding: $gutter * 2;
@@ -48,4 +63,9 @@ h3 {
 
 .column-small {
   max-width: 50rem;
+}
+
+.bottom-section {
+  text-align: center;
+  margin-top: $gutter * 3;
 }

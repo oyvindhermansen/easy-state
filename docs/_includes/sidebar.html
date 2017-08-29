@@ -1,0 +1,15 @@
+<aside class="examples-nav">
+    <nav>
+        <ul>
+            {% for page in site.pages %}
+            	{% if page.layout == 'examples' %}
+                    {% if page.title != 'Examples' %}
+                        <li>
+                            <a href="/easy-state{{page.permalink}}">{{ page.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>

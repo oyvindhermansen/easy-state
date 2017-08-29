@@ -31,59 +31,7 @@ store.subscribe((prevState, nextState) => {
 });
 ```
 
-## Counter-example:
-```js
-const store = createStateTree({ counter: 0 });
-
-const initEventListeners = () => {
-  myIncrementButton.addEventListener('click', handleIncrement);
-  myDecrementButton.addEventListener('click', handleDecrement);
-};
-
-const handleIncrement = () => {
-  const counter = store.getState().counter;
-  store.setState({ counter: counter + 1 });
-}
-
-const handleDecrement = () => {
-  const counter = store.getState().counter;
-  store.setState({ counter: counter - 1 });
-}
-
-const renderCounter = (counter) => {
-  myDOMCounterElement.innerHTML = counter;
-}
-
-initEventListeners();
-renderCounter(store.getState().counter);
-
-store.subscribe((prevState, nextState) => {
-  renderCounter(nextState.counter);
-});
-```
-
-> For larger applications you can divide your stores into
-> smaller pieces, to get more control over certain parts.
-
-## Logger
-Easy-state also provides a logger to make the developer experience better.
-It takes the advantage of the subscribe method provided from `createStateTree` to log `prev` and `next` state to the console on every state change.
-
-![easy state logger](./demo/logger_easy_state.png)
-
-> NB: You should remove the logger before shipping to production.
-
-Here's how to use it:
-```js
-import createStateTree, { logger } from 'easy-state';
-
-const store = createStateTree({ counter: 1 });
-
-/**
-* Pass the store to the logger
-**/
-logger(store)
-```
+> To checkout some examples, visit the [docs page](https://oyvindhermansen.github.io/easy-state/)
 
 ### Developing easy-state
 
@@ -115,6 +63,13 @@ Prettier
 ```sh
 # Targets src, demo and __tests__ folders.
 $ yarn prettier
+```
+
+Website
+```sh
+# make sure you have jekyll installed
+# It will run on localhost:4000/easy-state/
+$ yarn website
 ```
 
 Build for production

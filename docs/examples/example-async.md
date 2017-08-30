@@ -7,7 +7,7 @@ permalink: '/examples/async-example'
 # Async example
 
 ```js
-import createStateTree from '../src/index';
+import createStateTree from 'easy-state';
 
 const store = createStateTree({
   posts: []
@@ -27,13 +27,21 @@ const fetchPosts = () => {
 }
 
 const post = (posts) => {
-  return posts.map(item => `<li>${item.title}</li>`);
+  return posts.map(item => {
+    const node = document.createElement('li');
+    const txt = document.createTextNode(item.title);
+
+    node.appendChild(txt);
+    return node;
+  });
 };
 
 const render = () => {
   const { posts } = store.getState();
-  const hasPostsLoaded = posts.length ? post(posts) : '<h1>Loading!</h1>';
-  outputList.innerHTLM = hasPostsLoaded;
+
+  for(let i = 0; i < post(posts).length; i++) {
+    outputList.append(post(posts)[i])
+  }
 };
 
 fetchPosts();

@@ -133,7 +133,7 @@ describe('createStateTree', () => {
       logger(store);
       store.setState({ counter: 2 });
 
-      expect(console.warn).toBeCalled();
+      expect(console.log).toBeCalled();
     });
   });
 });

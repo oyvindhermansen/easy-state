@@ -1,6 +1,6 @@
 {
   "name": "easy-state",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple state manipulation without any frameworks.",
   "main": "./lib/index.js",
   "scripts": {
@@ -10,18 +10,17 @@
     "test:watch": "jest --watch",
     "prepublish": "npm run build",
     "dev": "webpack-dev-server --hot --inline --progress --colors --open",
-    "build": "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build":
+      "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "website": "cd docs && bundle exec jekyll serve",
-    "prettier": "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
+    "prettier":
+      "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyvindhermansen/easy-state.git"
   },
-  "keywords": [
-    "state",
-    "state manipulation"
-  ],
+  "keywords": ["state", "state manipulation"],
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true

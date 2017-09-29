@@ -38,12 +38,12 @@ const createStateTree = initialState => {
 
       if (isPlainObject(nextState)) {
         checkForUndefinedKeys(previousState, nextState);
-        currentState = Object.assign({}, initialState, nextState);
+        currentState = Object.assign({}, currentState, nextState);
       } else if (typeof nextState === 'function') {
         checkForUndefinedKeys(previousState, nextState(previousState));
         currentState = Object.assign(
           {},
-          initialState,
+          currentState,
           nextState(previousState)
         );
       } else {

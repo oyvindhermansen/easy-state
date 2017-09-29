@@ -2,7 +2,8 @@ import $ from 'jquery';
 import createStateTree, { logger } from '../src/index';
 
 const store = createStateTree({
-  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!']
+  todos: ['Learn createStateTree', 'learn React', 'Some other thingy!'],
+  test: false
 });
 
 // Logs next and previous state in the console.
@@ -31,6 +32,8 @@ const removeTodo = e => {
   const index = parseInt($this.attr('data-index'), 10);
   const filtered = store.getState().todos.filter((item, i) => i != index);
   store.setState({ todos: filtered });
+
+  store.setState({ test: true });
 };
 
 const initEventListeners = () => {

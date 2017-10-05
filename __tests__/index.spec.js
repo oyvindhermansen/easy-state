@@ -85,6 +85,25 @@ describe('createStateTree', () => {
 
       expect(console.warn).toBeCalled();
     });
+
+    it('should not reset state if you update only one key', () => {
+      const store = createStateTree({ counter: 1, posts: [] });
+
+      store.setState({
+        posts: [...store.getState().posts, 'hello', 'world']
+      });
+
+      store.setState({
+        counter: 2
+      });
+
+      const expectedStore = {
+        counter: 2,
+        posts: ['hello', 'world']
+      };
+
+      expect(store.getState()).toEqual(expectedStore);
+    });
   });
 
   describe('createStateTree - subscribe', () => {

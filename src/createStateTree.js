@@ -11,7 +11,8 @@ import { isPlainObject, checkForUndefinedKeys } from './utils';
 const createStateTree = initialState => {
   let currentState = initialState;
   let previousState = currentState;
-  const listeners = [];
+  let listeners = [];
+  let nextListeners = listeners;
 
   if (!isPlainObject(initialState)) {
     throw new Error(`Expected initialState to be a plain object.`);
@@ -34,6 +35,7 @@ const createStateTree = initialState => {
    */
   const setState = nextState => {
     if (nextState) {
+      const newListeners = (listeners = nextListeners);
       previousState = currentState;
 
       if (isPlainObject(nextState)) {
@@ -52,12 +54,7 @@ const createStateTree = initialState => {
         );
       }
 
-      /**
-       * Make sure listeners from render
-       * is run every time setState is called
-       */
-
-      listeners.forEach(listener => listener(previousState, currentState));
+      newListeners.forEach(listener => listener(previousState, currentState));
 
       return nextState;
     }
@@ -75,14 +72,18 @@ const createStateTree = initialState => {
       throw new Error(`Expected listener to be a function.`);
     }
 
-    /**
-     * make the listeners available
-     * to setState and run them.
-     */
-
     listeners.push(listener);
 
-    return listeners;
+    let isSubscribed = true;
+
+    return function unsubscribe() {
+      if (!isSubscribed) return;
+
+      isSubscribed = false;
+
+      const index = listeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+    };
   };
 
   return {

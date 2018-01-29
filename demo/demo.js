@@ -31,9 +31,7 @@ const removeTodo = e => {
   const $this = $(e.currentTarget);
   const index = parseInt($this.attr('data-index'), 10);
   const filtered = store.getState().todos.filter((item, i) => i != index);
-  store.setState({ todos: filtered });
-
-  store.setState({ test: true });
+  store.setState({ todos: filtered, test: true });
 };
 
 const initEventListeners = () => {

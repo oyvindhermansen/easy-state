@@ -129,6 +129,20 @@ describe('createStateTree', () => {
         store.subscribe(() => {});
       }).not.toThrow();
     });
+
+    it('should remove relevant listener from subscribe', () => {
+      const store = createStateTree({ counter: 1 });
+      const listener = jest.fn();
+
+      store.subscribe(listener);
+      const unsubscribeSecond = store.subscribe(listener);
+
+      unsubscribeSecond();
+      unsubscribeSecond();
+
+      store.setState({ counter: 2 });
+      expect(listener.mock.calls.length).toBe(1);
+    });
   });
 
   describe('logger', () => {

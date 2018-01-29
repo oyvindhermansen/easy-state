@@ -130,7 +130,7 @@ describe('createStateTree', () => {
       }).not.toThrow();
     });
 
-    it('should remove relevant listener from listen', () => {
+    it('should remove relevant listener from subscribe', () => {
       const store = createStateTree({ counter: 1 });
       const listener = jest.fn();
 

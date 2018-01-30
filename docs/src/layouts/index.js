@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Header from '../components/Header';
+import styled from 'styled-components';
+import Header from './Header';
 import './index.css';
 
-const TemplateWrapper = ({ children }) => (
+const StyledChildren = styled.div`
+  position: relative;
+  top: 50px;
+`;
+
+const TemplateWrapper = ({ data, children }) => (
   <div>
     <Helmet
       title="Easy State"
@@ -14,7 +20,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    <div>{children()}</div>
+    <StyledChildren>{children()}</StyledChildren>
   </div>
 );
 

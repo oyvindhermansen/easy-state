@@ -14,6 +14,10 @@ const StyledHeader = styled.header`
   align-items: center;
   width: 100%;
   font-family: sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
   @media all and (max-width: 600px) {
     padding: 1rem 2rem;
@@ -100,13 +104,8 @@ export default class Header extends Component {
           </Link>
           <List>
             <li>
-              <Link activeStyle={activeStyle} to="/docs">
+              <Link activeStyle={activeStyle} to="/docs/install">
                 Docs
-              </Link>
-            </li>
-            <li>
-              <Link activeStyle={activeStyle} to="/examples">
-                Examples
               </Link>
             </li>
             <li>

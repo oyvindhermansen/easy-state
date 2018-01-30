@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import { Container, Marginer } from '../components/Common';
+import DocsNav from '../layouts/DocsNav';
+
+const MainMarkdown = styled.div`
+  height: 500px;
+  width: calc(100% - 300px);
+  margin-left: 300px;
+`;
 
 export default function Template({ data }) {
   const { markdownRemark: { frontmatter, html } } = data;
 
   return (
     <div>
-      <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <DocsNav />
+      <Marginer>
+        <MainMarkdown>
+          <h1>{frontmatter.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </MainMarkdown>
+      </Marginer>
     </div>
   );
 }

@@ -84,7 +84,7 @@ const Hero = () => {
           Easy JavaScript <span>State</span> Manager
         </HeroTitle>
         <ButtonGroup>
-          <PrimaryButton to="/docs">Docs</PrimaryButton>
+          <PrimaryButton to="/docs/install">Docs</PrimaryButton>
           <ExternalSecondaryButton href="https://github.com/oyvindhermansen/easy-state">
             Github
           </ExternalSecondaryButton>

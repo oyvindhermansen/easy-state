@@ -3,4 +3,16 @@ path: "/docs/install"
 title: "Install Easy State"
 ---
 
-This is the body of the installation page
+Installing Easy State
+
+<div>Using yarn:</div>
+
+```shell
+$ yarn add easy-state
+```
+
+<div>Using npm:</div>
+
+```shell
+$ npm install easy-state --save
+```

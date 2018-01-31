@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import Header from './Header';
 import './index.css';
+require('prismjs/themes/prism-okaidia.css');
 
 const StyledChildren = styled.div`
   position: relative;

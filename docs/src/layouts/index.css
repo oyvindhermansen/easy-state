@@ -625,3 +625,7 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.gatsby-highlight {
+  padding: 0.5rem 0;
+}

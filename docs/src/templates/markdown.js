@@ -6,8 +6,8 @@ import DocsNav from '../layouts/DocsNav';
 
 const MainMarkdown = styled.div`
   height: 500px;
-  width: calc(100% - 300px);
-  margin-left: 300px;
+  margin-left: 250px;
+  padding: 0 2rem;
 `;
 
 export default function Template({ data }) {

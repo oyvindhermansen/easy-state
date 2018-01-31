@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Link from 'gatsby-link';
+import styled, { css } from 'styled-components';
+import { BaseLink } from '../components/Common';
 import logo from '../utils/images/logo.svg';
 import githubLogo from '../utils/images/github_mark.png';
+import { isActive } from '../utils/isActive';
 
 const StyledHeader = styled.header`
   background: #ffffff;
@@ -86,41 +87,53 @@ const List = styled.ul`
   }
 `;
 
+const HeaderLink = BaseLink.extend`
+  ${props =>
+    props.activePath &&
+    css`
+      color: #eb5757;
+    `};
+`;
+
 const GithubMark = styled.img`
   width: 22px;
 `;
 
-export default class Header extends Component {
-  render() {
-    const activeStyle = {
-      color: '#EB5757'
-    };
+const Header = ({ location }) => {
+  const activeStyle = {
+    color: '#EB5757'
+  };
 
-    return (
-      <StyledHeader>
-        <FlexWrapper>
-          <Link to="/">
-            <Logo src={logo} /> <LogoText>Easy State</LogoText>
-          </Link>
-          <List>
-            <li>
-              <Link activeStyle={activeStyle} to="/docs/install">
-                Docs
-              </Link>
-            </li>
-            <li>
-              <Link activeStyle={activeStyle} to="/motivation">
-                Motivation
-              </Link>
-            </li>
-            <li>
-              <a href="https://github.com/oyvindhermansen/easy-state">
-                <GithubMark src={githubLogo} />
-              </a>
-            </li>
-          </List>
-        </FlexWrapper>
-      </StyledHeader>
-    );
-  }
-}
+  return (
+    <StyledHeader>
+      <FlexWrapper>
+        <BaseLink to="/">
+          <Logo src={logo} /> <LogoText>Easy State</LogoText>
+        </BaseLink>
+        <List>
+          <li>
+            <HeaderLink
+              activeStyle={activeStyle}
+              to="/docs/install"
+              isActive={() => isActive(location, '/docs/')}
+            >
+              Docs
+            </HeaderLink>
+          </li>
+          <li>
+            <HeaderLink activeStyle={activeStyle} to="/motivation">
+              Motivation
+            </HeaderLink>
+          </li>
+          <li>
+            <a href="https://github.com/oyvindhermansen/easy-state">
+              <GithubMark src={githubLogo} />
+            </a>
+          </li>
+        </List>
+      </FlexWrapper>
+    </StyledHeader>
+  );
+};
+
+export default Header;

@@ -2,7 +2,7 @@ const path = require('path');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
-  const markdownTemplate = path.resolve('src/templates/markdown.js');
+  const markdownTemplate = path.resolve('src/templates/docs.js');
 
   return graphql(`
     {
@@ -14,6 +14,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             frontmatter {
               path
               title
+              order
             }
           }
         }

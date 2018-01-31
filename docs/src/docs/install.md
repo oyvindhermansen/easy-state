@@ -1,17 +1,20 @@
 ---
 path: "/docs/install"
 title: "Install Easy State"
+order: 1
 ---
 
-Installing Easy State
+Easy State is published on the npm registry and can be installed by using either `npm` or `yarn`
 
-<div>Using yarn:</div>
+---
+
+### With yarn
 
 ```shell
 $ yarn add easy-state
 ```
 
-<div>Using npm:</div>
+### With npm
 
 ```shell
 $ npm install easy-state --save

@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { BaseLink } from '../components/Common';
 
 const Aside = styled.aside`
   width: 250px;
@@ -13,42 +14,51 @@ const Aside = styled.aside`
   top: 50px;
   left: 0;
   padding: 2rem;
+  z-index: 2;
 `;
 
-const DocsNav = ({ data }) => {
-  console.log(data);
+const NavList = styled.ul`
+  list-style: none;
+  margin: 0;
+`;
+
+const NavListItem = styled.li``;
+
+const NavListItemLink = BaseLink.extend`
+  color: #333333;
+  text-decoration: none;
+  display: block;
+  font-size: 0.875rem;
+`;
+
+const DocsNav = ({ navData }) => {
+  const activeStyle = {
+    color: '#EB5757'
+  };
+
   return (
     <Aside>
-      <p>Documentation</p>
-      <p>here comes links</p>
-      {/*data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <h3>{node.frontmatter.title}</h3>
-        </div>
-      ))*/}
+      <nav>
+        <NavList>
+          {navData.allMarkdownRemark.edges.map(({ node, location }) => (
+            <NavListItem key={node.id}>
+              <NavListItemLink
+                to={node.frontmatter.path}
+                activeStyle={activeStyle}
+              >
+                {node.frontmatter.title}
+              </NavListItemLink>
+            </NavListItem>
+          ))}
+        </NavList>
+      </nav>
     </Aside>
   );
 };
 
 DocsNav.propTypes = {
-  data: PropTypes.object
+  navData: PropTypes.object,
+  location: PropTypes.object
 };
-
-export const pageQuery = graphql`
-  query docsNavQuery {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            path
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default DocsNav;

@@ -29,7 +29,7 @@ const GridContainer = styled.div`
   }
 `;
 
-const BaseLink = styled(({ ...rest }) => <Link {...rest} />)``;
+const BaseLink = styled(({ activePath, ...rest }) => <Link {...rest} />)``;
 
 const BaseButton = BaseLink.extend`
   padding: 0.8125rem 2rem;

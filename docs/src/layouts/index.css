@@ -629,3 +629,17 @@ pre tt:after {
 .gatsby-highlight {
   padding: 0.5rem 0;
 }
+
+p {
+  margin-bottom: 0;
+}
+
+h2,
+h3 {
+  margin-bottom: 0.125rem;
+  margin-top: 1.5rem;
+}
+
+hr {
+  margin-top: 10px;
+}

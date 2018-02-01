@@ -12,7 +12,7 @@
     "dev": "webpack-dev-server --hot --inline --progress --colors --open",
     "build":
       "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "deploy": "gatsby build --prefix-paths",
+      "deploy": "cd docs && gatsby build --prefix-paths && gh-pages -d public",
     "prettier":
       "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
   },

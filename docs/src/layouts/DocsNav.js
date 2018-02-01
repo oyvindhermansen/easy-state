@@ -15,6 +15,15 @@ const Aside = styled.aside`
   left: 0;
   padding: 2rem;
   z-index: 2;
+  transition: 0.2s ease-in-out;
+
+  @media all and (max-width: 966px) {
+    left: -250px;
+
+    &.mobile-open {
+      left: 0;
+    }
+  }
 `;
 
 const NavList = styled.ul`
@@ -31,13 +40,13 @@ const NavListItemLink = BaseLink.extend`
   font-size: 0.875rem;
 `;
 
-const DocsNav = ({ navData }) => {
+const DocsNav = ({ navData, className, location }) => {
   const activeStyle = {
     color: '#EB5757'
   };
 
   return (
-    <Aside>
+    <Aside className={className}>
       <nav>
         <NavList>
           {navData.allMarkdownRemark.edges.map(({ node, location }) => (
@@ -58,7 +67,8 @@ const DocsNav = ({ navData }) => {
 
 DocsNav.propTypes = {
   navData: PropTypes.object,
-  location: PropTypes.object
+  location: PropTypes.object,
+  className: PropTypes.string
 };
 
 export default DocsNav;

@@ -20,9 +20,8 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 1;
 
-  @media all and (max-width: 600px) {
-    padding: 1rem 2rem;
-    height: auto;
+  @media all and (max-width: 966px) {
+    padding: 0 1rem;
   }
 `;
 
@@ -37,15 +36,6 @@ const FlexWrapper = styled.div`
     color: #000000;
     text-decoration: none;
     font-size: 0.8125rem;
-
-    @media all and (max-width: 600px) {
-      text-align: center;
-      justify-content: center;
-    }
-  }
-
-  @media all and (max-width: 600px) {
-    flex-direction: column;
   }
 `;
 
@@ -66,11 +56,6 @@ const List = styled.ul`
   align-items: center;
   padding: 0;
   margin: 0;
-
-  @media all and (max-width: 600px) {
-    justify-content: center;
-    margin-top: 1rem;
-  }
 
   li {
     margin: 0;

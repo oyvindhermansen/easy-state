@@ -23,7 +23,7 @@ const GridContainer = styled.div`
     width: 33.33333%;
     padding: 1rem;
 
-    @media all and (max-width: 700px) {
+    @media all and (max-width: 966px) {
       width: 100%;
     }
   }

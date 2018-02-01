@@ -1,14 +1,10 @@
 ---
 path: "/docs/counter-example"
 title: "Counter example"
-order: 3
+order: 4
 ---
 
-This is an example put together of how you will use Easy State at its most simplistic form.
-
-### First step
-
-Define our DOM-elements
+This example shows how to use Easy State in its most simplistic form.
 
 ```js
 import createStateTree from 'easy-state';

@@ -5,7 +5,7 @@ order: 2
 ---
 
 Easy State provides one function that will be the base of your applications state.
-This function is called `createStateTree`. Here's an example of how you'll use it.
+This function is called `createStateTree`. Here's an example of how you would use it.
 
 ```javascript
 import createStateTree from 'easy-state';

@@ -19,7 +19,6 @@ export default class TemplateWrapper extends Component {
   };
 
   handleToggleMobileNavBar = () => {
-    console.log(this.state);
     this.setState({
       docsNavbarOpen: !this.state.docsNavbarOpen
     });

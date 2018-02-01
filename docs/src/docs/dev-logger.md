@@ -1,7 +1,7 @@
 ---
 path: "/docs/development-logger"
 title: "Development logger"
-order: 3
+order: 4
 ---
 
 Easy State also provides a utility function to use when developing, and it's called `logger`. Here's an example of how you would use it:

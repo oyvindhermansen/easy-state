@@ -1,7 +1,7 @@
 ---
 path: "/docs/counter-example"
 title: "Counter example"
-order: 4
+order: 5
 ---
 
 This example shows how to use Easy State in its most simplistic form.

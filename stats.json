@@ -1,5 +1,9 @@
 {
   "assetsByChunkName": {
+    "path---docs-async-example": [
+      "path---docs-async-example-c77e1c3dfc5b7bcf2bc8.js",
+      "path---docs-async-example-c77e1c3dfc5b7bcf2bc8.js.map"
+    ],
     "component---src-pages-index-js": [
       "component---src-pages-index-js-a6858e233196ba52b56b.js",
       "component---src-pages-index-js-a6858e233196ba52b56b.js.map"
@@ -9,20 +13,24 @@
       "path---docs-development-logger-e272d42a8cb83bfc31a1.js.map"
     ],
     "path---": [
-      "path----c56dd741e5aeeed5b073.js",
-      "path----c56dd741e5aeeed5b073.js.map"
+      "path----8a393c93d4b6a03244bb.js",
+      "path----8a393c93d4b6a03244bb.js.map"
     ],
     "path---docs-api": [
       "path---docs-api-ab6596d766eb1065f375.js",
       "path---docs-api-ab6596d766eb1065f375.js.map"
+    ],
+    "path---docs-unnecessary-rendering": [
+      "path---docs-unnecessary-rendering-aa4dbc523e14c4f7e62b.js",
+      "path---docs-unnecessary-rendering-aa4dbc523e14c4f7e62b.js.map"
     ],
     "path---docs-install": [
       "path---docs-install-ab3bb302057940afd817.js",
       "path---docs-install-ab3bb302057940afd817.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-3d3b5c5e3942e27452ea.js",
-      "component---src-layouts-index-js-3d3b5c5e3942e27452ea.js.map"
+      "component---src-layouts-index-js-c7353dcdd92fe17f2331.js",
+      "component---src-layouts-index-js-c7353dcdd92fe17f2331.js.map"
     ],
     "path---index": [
       "path---index-a0e39f21c11f6a62c5ab.js",
@@ -49,9 +57,9 @@
       "path---motivation-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-70451a02d2ccb1de3501.js",
+      "app-c3ff01ef794b390577ad.js",
       "build-js-styles.css",
-      "app-70451a02d2ccb1de3501.js.map",
+      "app-c3ff01ef794b390577ad.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-docs-js": [

@@ -10,17 +10,18 @@
     "test:watch": "jest --watch",
     "prepublish": "npm run build",
     "dev": "webpack-dev-server --hot --inline --progress --colors --open",
-    "build":
-      "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-      "deploy": "cd docs && gatsby build --prefix-paths && gh-pages -d public",
-    "prettier":
-      "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
+    "build": "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "deploy": "cd docs && gatsby build --prefix-paths && gh-pages -d public",
+    "prettier": "prettier --single-quote --write ./src/*.js && prettier --single-quote --write ./demo/*.js && prettier --single-quote --write ./__tests__/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyvindhermansen/easy-state.git"
   },
-  "keywords": ["state", "state manipulation"],
+  "keywords": [
+    "state",
+    "state manipulation"
+  ],
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
@@ -33,14 +34,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-register": "^6.24.1",
+    "codecov": "^2.3.0",
     "cross-env": "^5.0.5",
+    "gh-pages": "^1.1.0",
     "jest": "^20.0.4",
     "jquery": "^3.2.1",
     "prettier": "^1.4.4",
     "webpack": "latest",
     "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.18.0",
-    "codecov": "^2.3.0"
+    "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {}
 }

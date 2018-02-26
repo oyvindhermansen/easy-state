@@ -34,6 +34,10 @@ export default class TemplateWrapper extends Component {
     const { data, children, location } = this.props;
     const { docsNavbarOpen } = this.state;
     const showDocsNavbar = location.pathname.includes('/docs/') ? true : false;
+    const ogMetaImg =
+      process.env.NODE_ENV === 'production'
+        ? `https://oyvindhermansen.github.io${facebookImage}`
+        : facebookImage;
 
     return (
       <div>
@@ -51,7 +55,7 @@ export default class TemplateWrapper extends Component {
             },
             {
               property: 'og:image',
-              content: facebookImage
+              content: ogMetaImg
             }
           ]}
         />

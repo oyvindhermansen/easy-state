@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { BaseLink } from '../components/Common';
 
 const FooterWrapper = styled.footer`
   font-size: 0.875rem;

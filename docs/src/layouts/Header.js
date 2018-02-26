@@ -92,8 +92,9 @@ const Header = ({ location }) => {
   return (
     <StyledHeader>
       <FlexWrapper>
-        <BaseLink to="/">
-          <Logo src={logo} /> <LogoText>Easy State</LogoText>
+        <BaseLink to="/" aria-label="Home link">
+          <Logo src={logo} alt="Easy State logo" />{' '}
+          <LogoText>Easy State</LogoText>
         </BaseLink>
         <List>
           <li>

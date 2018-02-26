@@ -85,7 +85,12 @@ const Hero = () => {
         </HeroTitle>
         <ButtonGroup>
           <PrimaryButton to="/docs/install">Docs</PrimaryButton>
-          <ExternalSecondaryButton href="https://github.com/oyvindhermansen/easy-state">
+          <ExternalSecondaryButton
+            href="https://github.com/oyvindhermansen/easy-state"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Github link to Easy State"
+          >
             Github
           </ExternalSecondaryButton>
         </ButtonGroup>

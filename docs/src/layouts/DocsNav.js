@@ -52,6 +52,7 @@ const DocsNav = ({ navData, className, location }) => {
           {navData.allMarkdownRemark.edges.map(({ node, location }) => (
             <NavListItem key={node.id}>
               <NavListItemLink
+                aria-label={node.frontmatter.title}
                 to={node.frontmatter.path}
                 activeStyle={activeStyle}
               >

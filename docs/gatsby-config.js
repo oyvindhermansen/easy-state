@@ -4,8 +4,21 @@ module.exports = {
     title: 'Easy State'
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Easy State',
+        short_name: 'Easy State',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#eb5757',
+        display: 'minimal-ui',
+        icons: []
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -39,6 +39,7 @@ export default class TemplateWrapper extends Component {
       <div>
         <Helmet
           title="Easy State"
+          htmlAttributes={{ lang: 'en' }}
           meta={[
             { name: 'title', content: 'Easy State' },
             { name: 'description', content: 'Manage your UI state with ease.' },

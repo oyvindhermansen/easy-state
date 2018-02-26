@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import Footer from '../layouts/Footer';
 import frontData from '../utils/frontdata';
 import { Container, Marginer, GridContainer } from '../components/Common';
 import FrontCard from '../components/FrontCard';
@@ -16,6 +17,7 @@ const IndexPage = () => (
         </GridContainer>
       </Marginer>
     </Container>
+    <Footer />
   </div>
 );
 

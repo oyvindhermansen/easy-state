@@ -106,11 +106,6 @@ const Header = ({ location }) => {
             </HeaderLink>
           </li>
           <li>
-            <HeaderLink activeStyle={activeStyle} to="/motivation">
-              Motivation
-            </HeaderLink>
-          </li>
-          <li>
             <a href="https://github.com/oyvindhermansen/easy-state">
               <GithubMark src={githubLogo} />
             </a>

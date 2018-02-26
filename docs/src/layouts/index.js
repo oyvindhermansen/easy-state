@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Header from './Header';
 import DocsNav from './DocsNav';
 import MobileMenuButton from '../components/MobileMenuButton';
+import facebookImage from '../utils/images/facebookImage.png';
+import Footer from './Footer';
 import './index.css';
 require('prismjs/themes/prism-okaidia.css');
 
@@ -24,6 +26,10 @@ export default class TemplateWrapper extends Component {
     });
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { data, children, location } = this.props;
     const { docsNavbarOpen } = this.state;
@@ -34,8 +40,18 @@ export default class TemplateWrapper extends Component {
         <Helmet
           title="Easy State"
           meta={[
-            { name: 'description', content: 'Simple state management' },
-            { name: 'keywords', content: 'state' }
+            { name: 'title', content: 'Easy State' },
+            { name: 'description', content: 'Manage your UI state with ease.' },
+            { name: 'keywords', content: 'state' },
+            { property: 'og:title', content: 'Easy State' },
+            {
+              property: 'og:description',
+              content: 'Manage your UI state with ease.'
+            },
+            {
+              property: 'og:image',
+              content: facebookImage
+            }
           ]}
         />
         <Header location={location} />

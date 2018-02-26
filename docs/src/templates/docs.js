@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { Container, Marginer } from '../components/Common';
+import Footer from '../layouts/Footer';
 
 const MainMarkdown = styled.div`
   max-width: 40rem;
@@ -15,19 +16,26 @@ const MainMarkdown = styled.div`
   }
 `;
 
-export default function Template({ data }) {
-  const { markdownRemark: { frontmatter, html } } = data;
+export default class Template extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
-  return (
-    <div>
-      <Marginer>
-        <MainMarkdown>
-          <h1>{frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </MainMarkdown>
-      </Marginer>
-    </div>
-  );
+  render() {
+    const { markdownRemark: { frontmatter, html } } = this.props.data;
+
+    return (
+      <div>
+        <Marginer>
+          <MainMarkdown>
+            <h1>{frontmatter.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <Footer />
+          </MainMarkdown>
+        </Marginer>
+      </div>
+    );
+  }
 }
 
 export const postQuery = graphql`

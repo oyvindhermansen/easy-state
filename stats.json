@@ -5,8 +5,8 @@
       "path---docs-async-example-c77e1c3dfc5b7bcf2bc8.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-a6858e233196ba52b56b.js",
-      "component---src-pages-index-js-a6858e233196ba52b56b.js.map"
+      "component---src-pages-index-js-eb69b1d52b0920c5ed61.js",
+      "component---src-pages-index-js-eb69b1d52b0920c5ed61.js.map"
     ],
     "path---docs-development-logger": [
       "path---docs-development-logger-e272d42a8cb83bfc31a1.js",
@@ -29,8 +29,8 @@
       "path---docs-install-ab3bb302057940afd817.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-c7353dcdd92fe17f2331.js",
-      "component---src-layouts-index-js-c7353dcdd92fe17f2331.js.map"
+      "component---src-layouts-index-js-4d3d059b9243350b3d13.js",
+      "component---src-layouts-index-js-4d3d059b9243350b3d13.js.map"
     ],
     "path---index": [
       "path---index-a0e39f21c11f6a62c5ab.js",
@@ -52,23 +52,15 @@
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
-    "path---motivation": [
-      "path---motivation-a0e39f21c11f6a62c5ab.js",
-      "path---motivation-a0e39f21c11f6a62c5ab.js.map"
-    ],
     "app": [
-      "app-c3ff01ef794b390577ad.js",
+      "app-a269fbccd1f1696f2920.js",
       "build-js-styles.css",
-      "app-c3ff01ef794b390577ad.js.map",
+      "app-a269fbccd1f1696f2920.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-docs-js": [
-      "component---src-templates-docs-js-a4358f68ce8439c42c54.js",
-      "component---src-templates-docs-js-a4358f68ce8439c42c54.js.map"
-    ],
-    "component---src-pages-motivation-js": [
-      "component---src-pages-motivation-js-d1880078cdc5bad31844.js",
-      "component---src-pages-motivation-js-d1880078cdc5bad31844.js.map"
+      "component---src-templates-docs-js-89c3ba12dfff27b769ab.js",
+      "component---src-templates-docs-js-89c3ba12dfff27b769ab.js.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",

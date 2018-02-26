@@ -108,7 +108,10 @@ const Header = ({ location }) => {
           </li>
           <li>
             <a href="https://github.com/oyvindhermansen/easy-state">
-              <GithubMark src={githubLogo} />
+              <GithubMark
+                src={githubLogo}
+                alt="Github link to Easy State repository"
+              />
             </a>
           </li>
         </List>

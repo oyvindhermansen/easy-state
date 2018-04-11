@@ -43,12 +43,15 @@ describe('createStateTree', () => {
   });
 
   describe('createStateTree - setState', () => {
-    it('should return undefined if no next state provided', () => {
+    it('should throw if using setState without argument', () => {
       const store = createStateTree({ counter: 1 });
-      expect(store.setState()).toEqual(undefined);
+
+      expect(() => {
+        store.setState();
+      }).toThrow();
     });
 
-    it('should throw if nextState is not a plain object', () => {
+    it('should throw if nextState is not a plain object or a callback function', () => {
       const store = createStateTree({ counter: 1 });
 
       expect(() => {
@@ -65,6 +68,10 @@ describe('createStateTree', () => {
 
       expect(() => {
         store.setState({});
+      }).not.toThrow();
+
+      expect(() => {
+        store.setState(prevState => ({ counter: 2 }));
       }).not.toThrow();
     });
 

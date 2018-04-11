@@ -34,31 +34,30 @@ const createStateTree = initialState => {
    * @return {Object} nextState
    */
   const setState = nextState => {
-    if (nextState) {
-      const newListeners = (listeners = nextListeners);
-      previousState = currentState;
-
-      if (isPlainObject(nextState)) {
-        checkForUndefinedKeys(previousState, nextState);
-        currentState = Object.assign({}, currentState, nextState);
-      } else if (typeof nextState === 'function') {
-        checkForUndefinedKeys(previousState, nextState(previousState));
-        currentState = Object.assign(
-          {},
-          currentState,
-          nextState(previousState)
-        );
-      } else {
-        throw new Error(
-          `Expected nextState to be a plain object or a callback function.`
-        );
-      }
-
-      newListeners.forEach(listener => listener(previousState, currentState));
-
-      return nextState;
+    if (!nextState) {
+      throw new Error(
+        'Expected an object or a callback function to return new state.'
+      );
     }
-    return;
+
+    const newListeners = (listeners = nextListeners);
+    previousState = currentState;
+
+    if (isPlainObject(nextState)) {
+      checkForUndefinedKeys(previousState, nextState);
+      currentState = Object.assign({}, currentState, nextState);
+    } else if (typeof nextState === 'function') {
+      checkForUndefinedKeys(previousState, nextState(previousState));
+      currentState = Object.assign({}, currentState, nextState(previousState));
+    } else {
+      throw new Error(
+        `Expected nextState to be a plain object or a callback function.`
+      );
+    }
+
+    newListeners.forEach(listener => listener(previousState, currentState));
+
+    return nextState;
   };
 
   /**
